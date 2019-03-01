@@ -1,0 +1,8 @@
+<h1>Create a Super Heroine</h1>
+
+<%= form_for @heroine do |f| %>
+  Name: <%= f.text_field :name %><br>
+  Super Name: <%= f.text_field :super_name %><br>
+  Super Power: <%= f.select :power_id, Power.all.collect {|p| [p.name, p.id] } %>
+  <%= f.submit %>
+<% end %>
