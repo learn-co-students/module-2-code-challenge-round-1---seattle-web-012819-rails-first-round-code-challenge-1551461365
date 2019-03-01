@@ -1,0 +1,19 @@
+<% if flash[:notice] %>
+<h2><b><font color="red"><%= flash[:notice] %></font></h2></b>
+<% end %>
+
+<%= form_for @heroine do |f| %>
+  <h2><b><font color="blue"><%= f.label :name, "New Heroine's Name"%></font></b><br>
+  <%= f.text_field :name%><br><br>
+  <b><font color="blue"><%= f.label :super_name, "New Heroine's Super name" %></font></b><br>
+  <%= f.text_field :super_name %><br></h2>
+  <%= f.collection_select :power_id, Power.all, :id, :name %><br><br>
+  <%= f.submit %>
+<% end %>
+
+<h3>Existing Heroines</h3>
+<% @heroines.each do |heroine| %>
+<ul>
+  <li><%= link_to  heroine.super_name, heroine %></li>
+</ul>
+  <% end %>

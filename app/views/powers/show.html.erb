@@ -1,0 +1,6 @@
+<h1><%= @power.name %></h1>
+<p><%= @power.description %></p>
+<h2>Heroines who possess this power:</h2>
+<% @power.heroines.each do |heroine| %>
+<li><%= heroine.super_name %></li>
+<% end %>
