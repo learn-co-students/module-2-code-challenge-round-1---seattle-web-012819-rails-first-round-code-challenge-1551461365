@@ -1,4 +1,6 @@
 class HeroinesController < ApplicationController
+  before_action :set_heroine, only: [:show]
+
   def index
     @heroines = Heroine.all
   end
@@ -8,15 +10,15 @@ class HeroinesController < ApplicationController
   end
 
   def create
-    @heroine = Heroine.create(heroine_params)
-
-    redirect_to @heroine
+    @heroine = Heroine.new(heroine_params)
+    if @heroine.valid?
+      @heroine.save
+      redirect_to @heroine
+    else
+      @errors = @heroine.errors.full_messages
+      render :new
+    end
   end
-
-  def show
-    set_heroine
-  end
-
 
   private
 
