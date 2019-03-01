@@ -2,12 +2,13 @@
 
 <h5>Search Heroines by Superpower!</h5>
 <%= form_tag(heroines_path, method: 'GET') do %>
-  <%= collection_select(:power, :id, @powers, :id, :name) %>
+  <%= collection_select(:power, :id, @powers, :id, :name, prompt: true) %>
   <%= submit_tag("Search") %>
 <% end %>
 
 <% if @power %>
   <h4 style="color:purple">These Are All of the Heroines With <%= @power.name %>!</h4>
+  <p><%= link_to("Back to all ", heroines_path) %></p>
 <% end %>
 <ul>
   <% @heroines.each do |heroine| %>
