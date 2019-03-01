@@ -1,3 +1,19 @@
 // Place all the styles related to the superheroes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#error_message {
+  color: red;
+  padding: 10px
+}
+
+#success_message {
+  color: green;
+  padding: 10px
+}
+
+#search {
+  color: #ffff;
+  background-color: blue;
+  padding: 20px
+}

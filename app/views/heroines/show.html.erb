@@ -1,0 +1,14 @@
+
+<h2>Heroine Show Page</h2>
+
+<div id = "success_message">
+  <% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "flash #{key}" %>
+  <% end %>
+</div>
+
+Name: <%= @heroine.name  %>
+<br>
+Super Name: <%= @heroine.super_name  %>
+<br>
+Power: <%= link_to @heroine.power.name, power_path(@heroine.power)  %>
