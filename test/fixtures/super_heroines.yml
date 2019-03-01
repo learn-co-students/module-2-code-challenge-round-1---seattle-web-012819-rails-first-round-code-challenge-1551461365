@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  power: one
+  heroine: one
+
+two:
+  power: two
+  heroine: two

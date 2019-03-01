@@ -1,0 +1,4 @@
+<%= @heroine.name %>
+<%= @heroine.super_name %>
+<% girl_power = Power.find(@heroine.power_id) %>
+<%= link_to girl_power.name, girl_power %>
