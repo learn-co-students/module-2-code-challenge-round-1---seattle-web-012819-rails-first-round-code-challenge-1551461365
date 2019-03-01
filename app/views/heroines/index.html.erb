@@ -1,9 +1,17 @@
 <h2>All Heroines</h2>
 
+<!-- Couln't quite crack the bonus search feature... Does this need a new route and controller action heroines#search? -->
+<h3>Search By Superpower:</h3>
+<%= form_tag(heroines_path, method: "get") do %>
+  <%= label_tag(:power_id) %>
+  <%= text_field_tag(:power_id) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
-      <%= heroine.super_name %>
+      <%= link_to heroine.super_name, heroine_path(heroine) %>
     </li>
     <br>
   <% end %>
