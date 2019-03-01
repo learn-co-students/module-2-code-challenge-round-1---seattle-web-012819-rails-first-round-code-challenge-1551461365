@@ -1,0 +1,11 @@
+<%= content_tag(:h2, @power.name) %>
+<%= content_tag(:p, @power.description) %>
+
+<%= content_tag(:h3, "Super-heroines with #{@power.name}")%>
+<ul>
+  <% @power.heroines.each do |heroine|%>
+    <li>
+      <%= link_to heroine.super_name, heroine_path(heroine)%>
+    </>
+  <% end %>
+</ul>

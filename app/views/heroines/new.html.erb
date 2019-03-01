@@ -1,0 +1,25 @@
+<%= content_tag(:h1, "Create Heroine:")%>
+
+<% if @heroine.errors.any? %>
+  <p>Errors!</p>
+  <ul>
+    <% @heroine.errors.full_messages.each do |msg|%>
+      <li>
+        <p><%= msg %></p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @heroine do |h| %>
+  <div id="field<%= " error" if @heroine.errors[:name].any?%>">
+    <%= h.label :name, "Name:"%><br>
+    <%= h.text_field :name, value: @heroine.name %>
+  </div><br>
+  <div id="field<%= " error" if @heroine.errors[:name].any?%>">
+    <%= h.label :name, "Super-Heroine Name:"%><br>
+    <%= h.text_field :super_name, value: @heroine.super_name%>
+  </div><br>
+  <%= h.collection_select :power_id, Power.all, :id, :name %>
+  <%= h.submit%>
+<% end %>

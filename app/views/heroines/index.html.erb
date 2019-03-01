@@ -1,9 +1,13 @@
 <h2>All Heroines</h2>
 
+<%= form_tag('/heroines', method: 'GET') do %>
+  <%= select_tag :search, options_from_collection_for_select(@powers, "id", "name"), include_blank: true %>
+  <%= submit_tag "Search" %>
+<% end %>
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
-      <%= heroine.super_name %>
+      <%= link_to heroine.super_name, heroine_path(heroine) %>
     </li>
     <br>
   <% end %>
