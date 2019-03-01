@@ -1,0 +1,21 @@
+<%= form_for @heroine do |f| %>
+  <% if @heroine.errors.any? %>
+    <% @heroine.errors.full_messages.each do |m| %>
+    <h4><%= m %></h4>
+  <% end %>
+<% end %>
+
+
+
+<p><%= f.label :name, "Heroine Name: " %>
+<%= f.text_field :name %></p>
+
+<p><%= f.label :super_name, "Super Name: " %>
+<%= f.text_field :super_name %></p>
+
+<p> <%= f.label :power_id, "Pick a power: " %>
+<%=f.collection_select(:power_id, Power.all, :id, :name)%></p>
+
+<%= f.submit %>
+
+<% end %>
