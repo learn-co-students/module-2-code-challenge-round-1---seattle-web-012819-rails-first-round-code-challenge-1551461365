@@ -1,0 +1,9 @@
+<h1>Heroine's Page</h1>
+<ul>
+<li>Real name: <%=@heroine.name%></li>
+<li>Super name: <%=@heroine.super_name%></li>
+<li>Superpower: <%=link_to @heroine.power.name.upcase, power_path(@heroine.power)%>
+
+</ul>
+
+<%=link_to "Heroine's Home", heroines_path%>

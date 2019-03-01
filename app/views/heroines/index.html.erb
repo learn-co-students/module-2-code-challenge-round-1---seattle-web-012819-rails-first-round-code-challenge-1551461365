@@ -1,10 +1,24 @@
+<h1><%if params[:search]%>
+  <%if @heroines.length > 10%>
+  <%="No power by that name!"%>
+  <%end%>
+<%end%></h1>
+
 <h2>All Heroines</h2>
+
+<%=form_tag(heroines_path, method: "get") do%>
+<%=label_tag(:search, "Search By Superpower")%>
+<%=text_field_tag(:search, params[:search])%>
+<%=submit_tag("Search")%>
+<%end%>
 
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
-      <%= heroine.super_name %>
+      <%= link_to heroine.super_name, heroine %>
     </li>
     <br>
   <% end %>
 </ul>
+
+<%=link_to "Make a New Heroine!", new_heroine_path%>
