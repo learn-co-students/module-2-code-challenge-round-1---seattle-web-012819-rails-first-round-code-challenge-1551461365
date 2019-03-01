@@ -1,0 +1,10 @@
+<h1>Your Heroine</h1>
+
+<p><%= flash[:notice] %> </p>
+
+<h3>Name: </h3>
+<%= @heroine.name %>
+<h3>Super Name: </h3>
+<%= @heroine.super_name %>
+<h3>Power: </h3>
+<%= link_to @heroine.power.name, power_path(@heroine.power) %>
