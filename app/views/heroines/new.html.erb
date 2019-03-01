@@ -1,0 +1,21 @@
+<h1>Create your Heroine!</h1>
+<br>
+
+<% if @heroine.errors.any? %>
+  <b>I'm sorry, that Super Name has already been taken, please try a different name.</b>
+<% end %>
+<br>
+<br>
+
+<%= form_for @heroine do |f| %>
+  <b><%= f.label "Name: " %></b>
+  <%= f.text_field :name %><br>
+
+  <b><%= f.label "Super Name: " %></b>
+  <%= f.text_field :super_name %><br>
+
+  <b><%= f.label "Power: " %></b>
+  <%= f.collection_select :power_id, Power.all, :id, :name %><br>
+
+  <%= f.submit %>
+<% end %>
