@@ -3,8 +3,24 @@
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
-      <%= heroine.super_name %>
+      <h3><%= link_to  heroine.super_name, heroine %></h3>
+      <p>(<%= heroine.name %>)</p>
     </li>
     <br>
   <% end %>
 </ul>
+
+<!-- couldnt figure out the search stuff :/ -->
+
+<% if false %>
+
+<%= form_for(@search, :url => { :action => "index" }, :html => {:method => :get} ) do |f| %>
+<%= f.collection_select :power_id, Power.all, :id, :name %>
+<%= f.submit %>
+<% end %>
+
+<!-- <% @heroines_sorted.each do |heroine| %>
+<%= heroine.name %>
+<% end %> -->
+<% end %>
+
