@@ -1,10 +1,36 @@
-<h2>All Heroines</h2>
+<style>
+body {background-color: #e1b8f2;
+font: 15px arial, sans-serif;
+color: teal;
+}</style>
 
+<h1>All Heroines</h1>
+
+<%= form_tag("/heroines", method: "get") do %>
+  <%= label_tag(:q, "Search by Superpower:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if @power_heroines %>
+<% @power_heroines.each do |heroine| %>
+  <li>
+    <%= link_to heroine.super_name, heroine_path(heroine) %>
+  </li>
+  <br>
+<% end %>
+
+
+<% else %>
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
-      <%= heroine.super_name %>
+      <%= link_to heroine.super_name, heroine_path(heroine) %>
     </li>
     <br>
   <% end %>
 </ul>
+<% end %>
+
+<%= link_to "Create new Heroine", new_heroine_path %><br>
+<%= link_to "Index of all Superpowers", powers_path %>

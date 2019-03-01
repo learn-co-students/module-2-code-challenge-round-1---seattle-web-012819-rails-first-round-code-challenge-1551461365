@@ -1,0 +1,16 @@
+<style>
+body {background-color: #e1b8f2;
+font: 15px arial, sans-serif;
+color: teal;
+}</style>
+
+<% if flash[:notice] %>
+<h4 style="color:green;"><%= flash[:notice] %></h4>
+<% end %>
+
+
+<h1><%= @heroine.super_name %></h1>
+<h2><%= @heroine.name %></h2>
+<h3><%= link_to @heroine.power.name, power_path(@heroine.power)%></h3>
+
+<%= link_to "Index of all Heroines", heroines_path %>

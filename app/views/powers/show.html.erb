@@ -1,0 +1,25 @@
+<style>
+body {background-color: #e1b8f2;
+font: 15px arial, sans-serif;
+color: teal;
+}</style>
+
+<% if flash[:notice] %>
+<h4 style="color:green;"><%= flash[:notice] %></h4>
+<% end %>
+
+<h1><%= @power.name %></h1>
+<h3><%= @power.description %></h3>
+
+
+
+<h4>List of Heroines with this Superpower:</h4>
+
+<ul>
+
+<% @heroines.each do |heroine| %>
+  <li><%= link_to heroine.super_name, heroine_path(heroine) %></li>
+<% end %>
+</ul>
+<br>
+<%= link_to "Index of all Powers", powers_path %>

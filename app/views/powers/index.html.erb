@@ -1,12 +1,21 @@
-<h2>All Superpowers</h2>
+<style>
+body {background-color: #e1b8f2;
+font: 15px arial, sans-serif;
+color: teal;
+}</style>
+
+<h1>All Superpowers</h1>
 
 <ul>
   <% @powers.each do |power| %>
     <li>
-      <%= power.name %>
+      <%= link_to power.name, power_path(power)%>
       <br>
       Description: <%= power.description %>
     </li>
     <br>
   <% end %>
 </ul>
+
+<%= link_to "Create new Superpower", new_power_path %><br>
+<%= link_to "Index of all Heroines", heroines_path %>

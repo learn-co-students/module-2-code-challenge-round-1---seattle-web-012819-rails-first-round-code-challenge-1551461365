@@ -1,0 +1,19 @@
+<style>
+body {background-color: #e1b8f2;
+font: 15px arial, sans-serif;
+color: teal;
+}</style>
+
+<% if flash[:notice] %>
+<h4 style="color:red;"><%= flash[:notice] %></h4>
+<% end %>
+
+<h1>Create new Heroine:</h1>
+<%= form_for @heroine do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :super_name %>
+<%= f.text_field :super_name %>
+<%= f.collection_select :power_id, Power.all, :id, :name %>
+<%= f.submit %>
+<% end %>
