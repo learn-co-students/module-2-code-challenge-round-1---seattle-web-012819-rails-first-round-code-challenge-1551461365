@@ -1,0 +1,13 @@
+<%if flash[:notice]%>
+<%=flash[:notice]%>
+<%end%>
+
+<h1>A new force is born!</h1>
+<%=form_for @heroine do |f|%>
+<li><%=f.label "What's Your Super Name?"%></li>
+<%=f.text_field :super_name%>
+<li><%=f.label "What's Your REAL name?"%></li>
+<%=f.text_field :name%>
+<li><%=f.collection_select :power_id, Power.all, :id, :name%></li>
+<%=f.submit%>
+<%end%>
