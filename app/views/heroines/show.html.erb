@@ -1,0 +1,11 @@
+<h1><%= @heroine.super_name %></h1>
+<%= image_tag("https://i.pinimg.com/236x/cf/bd/09/cfbd09a6d0f33f535d495ac5342196c0--black-widow-geek-art.jpg") %>
+<h3>Name:</h3> <%= @heroine.name %>
+<h3>Super Power:</h3> <%= link_to @heroine.power.name.titleize, power_path(@heroine.power) %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h4><%= link_to 'Back to all Super Heroines', heroines_path %> </h4>

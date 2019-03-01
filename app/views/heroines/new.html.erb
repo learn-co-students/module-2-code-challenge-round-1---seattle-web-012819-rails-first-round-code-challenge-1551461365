@@ -1,0 +1,22 @@
+<h1>Create a Heroine!</h1>
+   <%= form_for(@heroine) do |f| %>
+       <h3> <label>Heroine SUPER name: (ex. Wonder Woman)</label></h3>
+        <%= f.text_field :super_name %>
+
+        <h3><label>Heroine Real Name:</label></h3>
+        <%= f.text_field :name %>
+
+      <h3><label>Your Heroine's Super Power: </label></h3>
+        <%= f.collection_select :power_id, Power.all, :id, :name %>
+
+        <%= f.submit %>
+   <% end %>
+<br>
+   <% if flash[:errors] %>
+         <% flash[:errors].each do |error| %>
+         <h1> <%= error %>!!! </h1>
+         <% end %>
+   <% end %>
+<br>
+
+<%= image_tag("https://media.fromthegrapevine.com/assets/images/2017/6/supergirl.jpg.824x0_q71.jpg") %>
