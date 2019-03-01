@@ -18,7 +18,7 @@ class HeroinesController < ApplicationController
     if @heroine.valid?
       redirect_to heroine_path(@heroine)
     else
-      render :new
+      redirect_to new_heroine_path
     end
   end
 
