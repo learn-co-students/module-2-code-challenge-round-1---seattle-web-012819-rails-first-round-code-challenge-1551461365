@@ -1,0 +1,8 @@
+<% if flash[:new] %>
+  <h2 style="color:green;">New Herione Created!</h2>
+<% end %>
+
+<h2><%= @heroine.super_name %></h2>
+<p style="font-weight:bold">Name: <%= @heroine.name %></p>
+<p style="font-weight:bold">Power: <%= link_to(@heroine.power.name, @heroine.power) %>
+</p> 
